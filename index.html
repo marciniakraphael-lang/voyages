@@ -20,7 +20,7 @@ h1,h2,.big{font-family:Fraunces,Georgia,serif;font-weight:900;margin:0}
 h1{font-size:30px;letter-spacing:-.5px}
 .sub{color:var(--sub);font-size:13px;margin:4px 0 14px}
 .card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
-.big{font-size:56px;line-height:1;color:var(--ink)}
+.big{font-size:52px;line-height:1;color:var(--ink)}
 .lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);font-weight:600;margin-top:6px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
 .stats .card{margin:0;padding:12px}
@@ -55,7 +55,7 @@ input,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);backgroun
 <p class="sub">Touche un pays pour y ajouter un voyage.</p>
 
 <div class="card">
-  <div class="big"><span id="pct">0</span> %</div>
+  <div class="big"><span id="pct">0,000</span> %</div>
   <div class="lbl">du monde visité</div>
   <div class="bar"><i id="barfill" style="width:0"></i></div>
 </div>
@@ -99,4 +99,104 @@ function save() { try { localStorage.setItem(KEY, JSON.stringify(trips)); } catc
 function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
-var ISO2 = "AFG:AF,ALB:AL,DZA:DZ,AND:AD,AGO:AO,ATG:AG,ARG:AR,ARM:AM,AUS:AU,AUT:AT,AZE:AZ,BHS:BS,BHR:BH,BGD:BD,BRB:BB,BLR:BY,BEL:BE,BLZ:BZ,BEN:BJ,BTN:BT,BOL:BO,BIH:BA,BWA:BW,BRA:BR,BRN:BN,BGR:BG,BFA:BF,BDI:BI,KHM:KH,CMR:CM,CAN:CA,CPV:CV,CAF:CF,TCD:TD,CHL:CL,CHN:CN,COL:CO,COM:KM,COG:CG,COD:CD,CRI:CR,CIV:CI,HRV:HR,CUB:CU,CYP:CY,CZE:CZ,DNK:DK,DJI:DJ,DMA:DM,DOM:DO,ECU:EC,EGY:EG,SLV:SV,GNQ:GQ,ERI:ER,EST:EE,ETH:ET,FJI:FJ,FIN:FI,FRA:FR,GAB:GA,GMB:GM,GEO:GE,DEU:DE,GHA:GH,GRC:GR,GRD:GD,GTM:GT,GIN:GN,GNB:GW,GUY:GY,HTI:HT,HND:HN,HUN:HU,ISL:IS,IND:IN,IDN:ID,IRN:IR,IRQ:IQ,IRL:IE,ISR:IL,ITA:IT,JAM:JM,JPN:JP,JOR:JO,KAZ:KZ,KEN:KE,KIR:KI,PRK:KP,KOR:KR,KWT:KW,KGZ:KG,LAO:LA,LVA:LV,LBN:LB,LSO:LS,LBR:LR,LBY:LY,LIE:LI,LTU:LT,LUX:LU,MKD:MK,MDG:MG,MWI:MW,MYS:MY,MDV:MV,MLI:ML,MLT:MT,MHL:MH,MRT:MR,MUS:MU,MEX:MX,FSM:FM,MDA:MD,MCO:MC,MNG:MN,MNE:ME,MAR:MA,MOZ:MZ,MMR:MM,NAM:NA,NRU:NR,NPL:NP,NLD:NL,NZL:NZ,NIC:NI,NER:NE,NGA:NG,NOR:NO,OMN:OM,PAK:PK,PLW:PW,PAN:PA,PNG:PG,PRY:PY,PER:PE,PHL:PH,POL:PL,PRT:PT,QAT:QA,ROU:RO,RUS:RU,RWA:RW,KNA:KN,LCA:LC,VCT:VC,WSM:WS,SMR:SM,STP:ST,SAU:SA,SEN:SN,SRB:RS,SYC:SC,SLE:SL,SGP:SG,SVK:SK,SVN:SI,SLB:SB,SOM:SO,ZAF:ZA,SSD:SS,ESP:ES,LKA:LK,SDN:SD,SUR:SR,SWZ:SZ,SWE:SE,CHE:CH,SYR:SY,TWN:TW,TJK:TJ,TZA:TZ,TH
+var ISO2 = "AFG:AF,ALB:AL,DZA:DZ,AND:AD,AGO:AO,ATG:AG,ARG:AR,ARM:AM,AUS:AU,AUT:AT,AZE:AZ,BHS:BS,BHR:BH,BGD:BD,BRB:BB,BLR:BY,BEL:BE,BLZ:BZ,BEN:BJ,BTN:BT,BOL:BO,BIH:BA,BWA:BW,BRA:BR,BRN:BN,BGR:BG,BFA:BF,BDI:BI,KHM:KH,CMR:CM,CAN:CA,CPV:CV,CAF:CF,TCD:TD,CHL:CL,CHN:CN,COL:CO,COM:KM,COG:CG,COD:CD,CRI:CR,CIV:CI,HRV:HR,CUB:CU,CYP:CY,CZE:CZ,DNK:DK,DJI:DJ,DMA:DM,DOM:DO,ECU:EC,EGY:EG,SLV:SV,GNQ:GQ,ERI:ER,EST:EE,ETH:ET,FJI:FJ,FIN:FI,FRA:FR,GAB:GA,GMB:GM,GEO:GE,DEU:DE,GHA:GH,GRC:GR,GRD:GD,GTM:GT,GIN:GN,GNB:GW,GUY:GY,HTI:HT,HND:HN,HUN:HU,ISL:IS,IND:IN,IDN:ID,IRN:IR,IRQ:IQ,IRL:IE,ISR:IL,ITA:IT,JAM:JM,JPN:JP,JOR:JO,KAZ:KZ,KEN:KE,KIR:KI,PRK:KP,KOR:KR,KWT:KW,KGZ:KG,LAO:LA,LVA:LV,LBN:LB,LSO:LS,LBR:LR,LBY:LY,LIE:LI,LTU:LT,LUX:LU,MKD:MK,MDG:MG,MWI:MW,MYS:MY,MDV:MV,MLI:ML,MLT:MT,MHL:MH,MRT:MR,MUS:MU,MEX:MX,FSM:FM,MDA:MD,MCO:MC,MNG:MN,MNE:ME,MAR:MA,MOZ:MZ,MMR:MM,NAM:NA,NRU:NR,NPL:NP,NLD:NL,NZL:NZ,NIC:NI,NER:NE,NGA:NG,NOR:NO,OMN:OM,PAK:PK,PLW:PW,PAN:PA,PNG:PG,PRY:PY,PER:PE,PHL:PH,POL:PL,PRT:PT,QAT:QA,ROU:RO,RUS:RU,RWA:RW,KNA:KN,LCA:LC,VCT:VC,WSM:WS,SMR:SM,STP:ST,SAU:SA,SEN:SN,SRB:RS,SYC:SC,SLE:SL,SGP:SG,SVK:SK,SVN:SI,SLB:SB,SOM:SO,ZAF:ZA,SSD:SS,ESP:ES,LKA:LK,SDN:SD,SUR:SR,SWZ:SZ,SWE:SE,CHE:CH,SYR:SY,TWN:TW,TJK:TJ,TZA:TZ,THA:TH,TLS:TL,TGO:TG,TON:TO,TTO:TT,TUN:TN,TUR:TR,TKM:TM,TUV:TV,UGA:UG,UKR:UA,ARE:AE,GBR:GB,USA:US,URY:UY,UZB:UZ,VUT:VU,VAT:VA,VEN:VE,VNM:VN,YEM:YE,ZMB:ZM,ZWE:ZW,PSE:PS,KOS:XK,GRL:GL,ATF:TF,ESH:EH,NCL:NC,PRI:PR,FLK:FK,GUF:GF,HKG:HK,MAC:MO,ABW:AW,BMU:BM,CYM:KY,GIB:GI,GLP:GP,MTQ:MQ,REU:RE,PYF:PF,ALA:AX,FRO:FO,SJM:SJ";
+var I2 = {};
+ISO2.split(",").forEach(function (p) { var a = p.split(":"); I2[a[0]] = a[1]; });
+var dn = null;
+try { dn = new Intl.DisplayNames(["fr"], { type: "region" }); } catch (e) {}
+function fr(id, en) {
+  try { if (dn && I2[id]) { var n = dn.of(I2[id]); if (n && n !== I2[id]) return n; } } catch (e) {}
+  return en;
+}
+function nm(s) { return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+
+var map = new Datamap({
+  element: document.getElementById("map"),
+  responsive: true,
+  fills: { defaultFill: css("--land") || "#e4d9c8" },
+  geographyConfig: {
+    popupOnHover: false, highlightOnHover: false,
+    borderColor: css("--stroke") || "#fff", borderWidth: 0.5
+  }
+});
+map.svg.selectAll(".datamaps-subunit").each(function (g) { countries[g.id] = fr(g.id, g.properties.name); })
+  .on("click", function (g) { openSheet(g.id, countries[g.id]); });
+window.addEventListener("resize", function () { map.resize(); });
+
+function paint() {
+  var land = css("--land") || "#e4d9c8", acc = css("--acc") || "#c45a38", v = {};
+  trips.forEach(function (t) { v[t.iso] = 1; });
+  map.svg.selectAll(".datamaps-subunit").style("fill", function (g) { return v[g.id] ? acc : land; }, "important");
+}
+
+function render() {
+  var isos = {}, cities = {}, years = {};
+  trips.forEach(function (t) {
+    isos[t.iso] = 1;
+    (t.cities || "").split(",").forEach(function (c) { c = c.trim(); if (c) cities[c.toLowerCase()] = 1; });
+    years[t.year] = (years[t.year] || 0) + 1;
+  });
+  var n = Object.keys(isos).length, exact = n / TOTAL * 100;
+  document.getElementById("nc").textContent = n;
+  document.getElementById("ncity").textContent = Object.keys(cities).length;
+  document.getElementById("nt").textContent = trips.length;
+  document.getElementById("pct").textContent = exact.toFixed(3).replace(".", ",");
+  document.getElementById("barfill").style.width = (n ? Math.max(exact, 2) : 0) + "%";
+
+  var sorted = trips.slice().sort(function (a, b) { return a.year - b.year; });
+  document.getElementById("list").innerHTML = sorted.length ? sorted.map(function (t) {
+    return '<div class="trip"><div><b>' + esc(t.year) + " · " + esc(countries[t.iso] || t.country) + "</b>" +
+      (t.note ? "<small>" + esc(t.note) + "</small>" : "") +
+      '<button data-id="' + t.id + '">Supprimer</button></div><div class="r">' + esc(t.cities || "") + "</div></div>";
+  }).join("") : '<div class="empty">Aucun voyage pour le moment. Touche un pays sur la carte.</div>';
+
+  var ys = Object.keys(years).sort(), mx = Math.max.apply(null, ys.map(function (y) { return years[y]; }).concat([1]));
+  document.getElementById("chart").innerHTML = ys.length ? ys.map(function (y) {
+    return "<div><b>" + years[y] + '</b><i style="height:' + (years[y] / mx * 100) + '%"></i>' + esc(y) + "</div>";
+  }).join("") : '<div class="empty" style="width:100%">Rien à afficher.</div>';
+  paint();
+}
+
+function openSheet(iso, name) {
+  cur = { iso: iso, name: name };
+  document.getElementById("sname").textContent = name;
+  document.getElementById("syear").value = new Date().getFullYear();
+  document.getElementById("scities").value = "";
+  document.getElementById("snote").value = "";
+  document.getElementById("sheet").classList.add("on");
+}
+function closeSheet() { document.getElementById("sheet").classList.remove("on"); }
+
+document.getElementById("cancel").onclick = closeSheet;
+document.getElementById("sheet").onclick = function (e) { if (e.target === this) closeSheet(); };
+document.getElementById("save").onclick = function () {
+  var y = parseInt(document.getElementById("syear").value, 10);
+  if (!cur || !y) return;
+  trips.push({ id: Date.now(), iso: cur.iso, country: cur.name, year: y,
+    cities: document.getElementById("scities").value.trim(), note: document.getElementById("snote").value.trim() });
+  save(); closeSheet(); render();
+};
+document.getElementById("list").onclick = function (e) {
+  var id = e.target.getAttribute("data-id");
+  if (!id) return;
+  trips = trips.filter(function (t) { return String(t.id) !== id; });
+  save(); render();
+};
+document.getElementById("q").oninput = function () {
+  var v = nm(this.value.trim()), out = "";
+  if (v.length > 1) {
+    Object.keys(countries).filter(function (id) { return nm(countries[id]).indexOf(v) > -1; })
+      .slice(0, 5).forEach(function (id) { out += '<button data-i="' + id + '">' + esc(countries[id]) + "</button>"; });
+  }
+  document.getElementById("res").innerHTML = out;
+};
+document.getElementById("res").onclick = function (e) {
+  var i = e.target.getAttribute("data-i");
+  if (!i) return;
+  document.getElementById("q").value = ""; this.innerHTML = "";
+  openSheet(i, countries[i]);
+};
+render();
+</script>
+</body>
+</html>
